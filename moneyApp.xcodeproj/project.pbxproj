@@ -14,6 +14,7 @@
 		2488F7E0299830B2004FB8C9 /* loginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2488F7DF299830B2004FB8C9 /* loginView.swift */; };
 		2488F7E2299830CA004FB8C9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2488F7E1299830CA004FB8C9 /* LoginViewController.swift */; };
 		2488F7E82998FB2B004FB8C9 /* OnboardingContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2488F7E72998FB2B004FB8C9 /* OnboardingContainerVC.swift */; };
+		2488F7EA2999067B004FB8C9 /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2488F7E92999067B004FB8C9 /* OnboardingVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		2488F7DF299830B2004FB8C9 /* loginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginView.swift; sourceTree = "<group>"; };
 		2488F7E1299830CA004FB8C9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2488F7E72998FB2B004FB8C9 /* OnboardingContainerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContainerVC.swift; sourceTree = "<group>"; };
+		2488F7E92999067B004FB8C9 /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				2488F7E72998FB2B004FB8C9 /* OnboardingContainerVC.swift */,
+				2488F7E92999067B004FB8C9 /* OnboardingVC.swift */,
 			);
 			path = "Onboarding ";
 			sourceTree = "<group>";
@@ -157,6 +160,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2488F7E82998FB2B004FB8C9 /* OnboardingContainerVC.swift in Sources */,
+				2488F7EA2999067B004FB8C9 /* OnboardingVC.swift in Sources */,
 				2488F7CC29983041004FB8C9 /* AppDelegate.swift in Sources */,
 				2488F7E0299830B2004FB8C9 /* loginView.swift in Sources */,
 				2488F7E2299830CA004FB8C9 /* LoginViewController.swift in Sources */,
