@@ -10,6 +10,7 @@ import UIKit
 class LoginViewController: UIViewController {
     
    
+    let m = UILabel()
     let r = UILabel()
     
     let appNameLabel: UILabel = {
