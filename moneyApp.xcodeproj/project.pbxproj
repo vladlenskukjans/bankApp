@@ -9,23 +9,23 @@
 /* Begin PBXBuildFile section */
 		2488F7CC29983041004FB8C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2488F7CB29983041004FB8C9 /* AppDelegate.swift */; };
 		2488F7CE29983041004FB8C9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2488F7CD29983041004FB8C9 /* SceneDelegate.swift */; };
-		2488F7D029983041004FB8C9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2488F7CF29983041004FB8C9 /* ViewController.swift */; };
 		2488F7D529983043004FB8C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2488F7D429983043004FB8C9 /* Assets.xcassets */; };
 		2488F7D829983043004FB8C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2488F7D629983043004FB8C9 /* LaunchScreen.storyboard */; };
 		2488F7E0299830B2004FB8C9 /* loginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2488F7DF299830B2004FB8C9 /* loginView.swift */; };
 		2488F7E2299830CA004FB8C9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2488F7E1299830CA004FB8C9 /* LoginViewController.swift */; };
+		2488F7E82998FB2B004FB8C9 /* OnboardingContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2488F7E72998FB2B004FB8C9 /* OnboardingContainerVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2488F7C829983041004FB8C9 /* moneyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = moneyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2488F7CB29983041004FB8C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2488F7CD29983041004FB8C9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2488F7CF29983041004FB8C9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2488F7D429983043004FB8C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2488F7D729983043004FB8C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		2488F7D929983043004FB8C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2488F7D929983043004FB8C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
 		2488F7DF299830B2004FB8C9 /* loginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginView.swift; sourceTree = "<group>"; };
 		2488F7E1299830CA004FB8C9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		2488F7E72998FB2B004FB8C9 /* OnboardingContainerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContainerVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +43,12 @@
 			isa = PBXGroup;
 			children = (
 				2488F7CA29983041004FB8C9 /* moneyApp */,
+				2488F7E32998F7EB004FB8C9 /* Login */,
+				2488F7D629983043004FB8C9 /* LaunchScreen.storyboard */,
+				2488F7CD29983041004FB8C9 /* SceneDelegate.swift */,
+				2488F7CB29983041004FB8C9 /* AppDelegate.swift */,
+				2488F7D429983043004FB8C9 /* Assets.xcassets */,
+				2488F7D929983043004FB8C9 /* Info.plist */,
 				2488F7C929983041004FB8C9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -58,16 +64,26 @@
 		2488F7CA29983041004FB8C9 /* moneyApp */ = {
 			isa = PBXGroup;
 			children = (
-				2488F7CB29983041004FB8C9 /* AppDelegate.swift */,
-				2488F7E1299830CA004FB8C9 /* LoginViewController.swift */,
-				2488F7DF299830B2004FB8C9 /* loginView.swift */,
-				2488F7CD29983041004FB8C9 /* SceneDelegate.swift */,
-				2488F7CF29983041004FB8C9 /* ViewController.swift */,
-				2488F7D429983043004FB8C9 /* Assets.xcassets */,
-				2488F7D629983043004FB8C9 /* LaunchScreen.storyboard */,
-				2488F7D929983043004FB8C9 /* Info.plist */,
+				2488F7E62998FADC004FB8C9 /* Onboarding  */,
 			);
 			path = moneyApp;
+			sourceTree = "<group>";
+		};
+		2488F7E32998F7EB004FB8C9 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				2488F7E1299830CA004FB8C9 /* LoginViewController.swift */,
+				2488F7DF299830B2004FB8C9 /* loginView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		2488F7E62998FADC004FB8C9 /* Onboarding  */ = {
+			isa = PBXGroup;
+			children = (
+				2488F7E72998FB2B004FB8C9 /* OnboardingContainerVC.swift */,
+			);
+			path = "Onboarding ";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,7 +156,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2488F7D029983041004FB8C9 /* ViewController.swift in Sources */,
+				2488F7E82998FB2B004FB8C9 /* OnboardingContainerVC.swift in Sources */,
 				2488F7CC29983041004FB8C9 /* AppDelegate.swift in Sources */,
 				2488F7E0299830B2004FB8C9 /* loginView.swift in Sources */,
 				2488F7E2299830CA004FB8C9 /* LoginViewController.swift in Sources */,
@@ -285,7 +301,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5C86U37WWL;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = moneyApp/Info.plist;
+				INFOPLIST_FILE = /Users/vladlenskukjans/Desktop/moneyApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -312,7 +328,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5C86U37WWL;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = moneyApp/Info.plist;
+				INFOPLIST_FILE = /Users/vladlenskukjans/Desktop/moneyApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

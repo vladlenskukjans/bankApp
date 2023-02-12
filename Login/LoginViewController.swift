@@ -118,7 +118,7 @@ extension LoginViewController {
     
     func login() {
         guard let name = userName, let password = userPassword else {
-            assertionFailure("Username/Password shoul never be nil")
+            assertionFailure("Username/Password should never be nil")
             return }
         
         if name.isEmpty || password.isEmpty {
