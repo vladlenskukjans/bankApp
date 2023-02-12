@@ -17,8 +17,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
        // window?.rootViewController = LoginViewController()
-       // window?.rootViewController = OnboardingContainerViewController()
-        window?.rootViewController = OnboardingVC()
+        window?.rootViewController = OnboardingContainerViewController()
+       // window?.rootViewController = OnboardingVC(heroImageName: "delorean", titleText: "MoneyApp is faster, easier to use, and has a brand new look and feel that will make you feel like you are back in 1989")
         window?.makeKeyAndVisible()
         
         
