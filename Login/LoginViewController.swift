@@ -7,12 +7,19 @@
 
 import UIKit
 
+protocol LoginViewControllerDelegate: AnyObject {
+    func didLogIn() 
+}
+
+protocol LogoutDelegate: AnyObject {
+   func didLogout()
+}
+
+
 class LoginViewController: UIViewController {
     
-   
-   //let m = UILabel()
-    //let r = UILabel()
-    
+    weak var delegate: LoginViewControllerDelegate?
+
     let appNameLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
@@ -56,6 +63,11 @@ class LoginViewController: UIViewController {
         
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        signButton.configuration?.showsActivityIndicator = false
+    }
+    
 }
 extension LoginViewController {
     private func style() {
@@ -93,7 +105,6 @@ extension LoginViewController {
             appDescriptionLabel.topAnchor.constraint(equalTo: appNameLabel.bottomAnchor, constant: 0),
             appDescriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
             appDescriptionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
-            //appDescriptionLabel.bottomAnchor.constraint(equalTo: loginView.topAnchor, constant: -10),
             
             loginView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             loginView.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 1),
@@ -121,13 +132,14 @@ extension LoginViewController {
             assertionFailure("Username/Password should never be nil")
             return }
         
-        if name.isEmpty || password.isEmpty {
-            configureView(withMessage: "Username/Password cannot be empty")
-            return
-        }
+//        if name.isEmpty || password.isEmpty {
+//            configureView(withMessage: "Username/Password cannot be empty")
+//            return
+//        }
         
-        if name == "Vladlen" && password == "Welcome" {
+        if name == "" && password == "" {
             signButton.configuration?.showsActivityIndicator = true
+            delegate?.didLogIn()
         } else {
             configureView(withMessage: "Incorrect username/ password")
             
