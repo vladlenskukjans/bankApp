@@ -28,7 +28,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         loginViewController.delegate = self
         dummyViewController.logoutDelegate = self
         window?.backgroundColor = .systemBackground
-        window?.rootViewController = UINavigationController(rootViewController: accountSummaryViewController)
+        window?.rootViewController =  accountSummaryViewController
         mainViewController.selectedIndex = 1
         // window?.rootViewController = OnboardingContainerViewController()
         window?.makeKeyAndVisible()
