@@ -12,11 +12,19 @@ class MainViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "foo"
-        navigationController?.navigationBar.tintColor = .systemRed
-        navigationItem.rightBarButtonItem = UIBarButtonItem(systemItem: .add)
+
         generateVC()
-        
+        setStatusBarAppearance()
+       
+    }
+    
+    func setStatusBarAppearance() {
+        let navBarAppearance = UINavigationBarAppearance()
+        navBarAppearance.configureWithTransparentBackground()
+        navBarAppearance.backgroundColor = .systemBackground
+        UINavigationBar.appearance().standardAppearance = navBarAppearance
+        UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
+       // navigationItem.rightBarButtonItem = UIBarButtonItem(systemItem: .close)
     }
     
     private func generateVC() {
