@@ -30,7 +30,7 @@ class MainViewController: UITabBarController {
     private func generateVC() {
         viewControllers = [
             
-    configureTabBarController(viewController: AccountSummaryVC(), title: "Summary", image: UIImage(systemName: "list.dash.header.rectangle")),
+    configureTabBarController(viewController: AccountSummaryViewController(), title: "Summary", image: UIImage(systemName: "list.dash.header.rectangle")),
     configureTabBarController(viewController: MoveMoneyVC(), title: "Move Money", image: UIImage(systemName: "arrow.left.arrow.right")),
     configureTabBarController(viewController: MoreVC(), title: "More", image: UIImage(systemName: "ellipsis.circle"))
         ]
@@ -47,14 +47,6 @@ class MainViewController: UITabBarController {
     
    
 }
-    
-class AccountSummaryVC: UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .systemBrown
-    }
-}
-
 
 class MoveMoneyVC: UIViewController {
     override func viewDidLoad() {

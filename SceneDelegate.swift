@@ -18,6 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     let onboardingContainerVC = OnboardingContainerViewController()
     let dummyViewController = DummyVc()
     let mainViewController = MainViewController()
+    let accountSummaryViewController = AccountSummaryViewController()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
        
@@ -27,7 +28,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         loginViewController.delegate = self
         dummyViewController.logoutDelegate = self
         window?.backgroundColor = .systemBackground
-        window?.rootViewController = UINavigationController(rootViewController: mainViewController)
+        window?.rootViewController = UINavigationController(rootViewController: accountSummaryViewController)
         mainViewController.selectedIndex = 1
         // window?.rootViewController = OnboardingContainerViewController()
         window?.makeKeyAndVisible()

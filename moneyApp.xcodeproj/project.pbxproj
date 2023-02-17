@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		245855A6299FA7BC003AAE28 /* AccountSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245855A5299FA7BC003AAE28 /* AccountSummaryViewController.swift */; };
 		2488F7CC29983041004FB8C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2488F7CB29983041004FB8C9 /* AppDelegate.swift */; };
 		2488F7CE29983041004FB8C9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2488F7CD29983041004FB8C9 /* SceneDelegate.swift */; };
 		2488F7D529983043004FB8C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2488F7D429983043004FB8C9 /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		245855A5299FA7BC003AAE28 /* AccountSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummaryViewController.swift; sourceTree = "<group>"; };
 		2488F7C829983041004FB8C9 /* moneyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = moneyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2488F7CB29983041004FB8C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2488F7CD29983041004FB8C9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,9 +51,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		245855A4299FA765003AAE28 /* AccountSummary */ = {
+			isa = PBXGroup;
+			children = (
+				245855A5299FA7BC003AAE28 /* AccountSummaryViewController.swift */,
+			);
+			path = AccountSummary;
+			sourceTree = "<group>";
+		};
 		2488F7BF29983041004FB8C9 = {
 			isa = PBXGroup;
 			children = (
+				245855A4299FA765003AAE28 /* AccountSummary */,
 				2488F7F2299A9F10004FB8C9 /* MainViewController.swift */,
 				2488F7ED299A6A79004FB8C9 /* Utilis */,
 				2488F7E32998F7EB004FB8C9 /* Login */,
@@ -179,6 +190,7 @@
 				2488F7E2299830CA004FB8C9 /* LoginViewController.swift in Sources */,
 				2488F7F1299A9DD8004FB8C9 /* UIViewControllers + Utils.swift in Sources */,
 				2488F7CE29983041004FB8C9 /* SceneDelegate.swift in Sources */,
+				245855A6299FA7BC003AAE28 /* AccountSummaryViewController.swift in Sources */,
 				2488F7EF299A6AAF004FB8C9 /* LocalState.swift in Sources */,
 				2488F7F3299A9F10004FB8C9 /* MainViewController.swift in Sources */,
 			);
