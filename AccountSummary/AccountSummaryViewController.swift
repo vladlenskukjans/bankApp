@@ -20,7 +20,8 @@ class AccountSummaryViewController: UIViewController {
     let tableView: UITableView = {
        let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
-     
+        tableView.register(AccountSummaryCell.self, forCellReuseIdentifier: AccountSummaryCell.identifier)
+        tableView.tableFooterView = UIView()
         return tableView
         
     }()
@@ -38,53 +39,40 @@ class AccountSummaryViewController: UIViewController {
         view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-       
-        setupConstraints()
-        setUpHeaderView()
+        
+                setUpHeaderView()
         
     }
     
     
     func setUpHeaderView() {
         let header = AccountSummaryHeaderView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 145))
-        header.backgroundColor = .secondarySystemBackground
+        header.backgroundColor = .systemBlue
         tableView.tableHeaderView = header
     }
     
 }
 
-extension AccountSummaryViewController {
-    func setupConstraints() {
-        NSLayoutConstraint.activate([
-        
-        
-        
-        
-        
-        ])
-    }
-}
-
-
-
 
 extension AccountSummaryViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        names.count
+        3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = names[indexPath.row]
-     
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: AccountSummaryCell.identifier, for: indexPath) as? AccountSummaryCell else {
+            return UITableViewCell()
+        }
         return cell
     }
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         
     }
     
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        150
+    }
 }
