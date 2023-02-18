@@ -21,7 +21,8 @@ class MainViewController: UITabBarController {
     func setStatusBarAppearance() {
         let navBarAppearance = UINavigationBarAppearance()
         navBarAppearance.configureWithTransparentBackground()
-        navBarAppearance.backgroundColor = .systemBackground
+        navBarAppearance.backgroundColor = appColor
+        UINavigationBar.appearance().isTranslucent = false // check what it does!!
         UINavigationBar.appearance().standardAppearance = navBarAppearance
         UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
        // navigationItem.rightBarButtonItem = UIBarButtonItem(systemItem: .close)
@@ -30,7 +31,7 @@ class MainViewController: UITabBarController {
     private func generateVC() {
         viewControllers = [
             
-    configureTabBarController(viewController: AccountSummaryVC(), title: "Summary", image: UIImage(systemName: "list.dash.header.rectangle")),
+    configureTabBarController(viewController: AccountSummaryViewController(), title: "Summary", image: UIImage(systemName: "list.dash.header.rectangle")),
     configureTabBarController(viewController: MoveMoneyVC(), title: "Move Money", image: UIImage(systemName: "arrow.left.arrow.right")),
     configureTabBarController(viewController: MoreVC(), title: "More", image: UIImage(systemName: "ellipsis.circle"))
         ]
@@ -40,21 +41,14 @@ class MainViewController: UITabBarController {
         viewController.tabBarItem.title = title
         viewController.tabBarItem.image = image
        // tabBar.tintColor = .systemBackground
-        tabBar.unselectedItemTintColor = .systemRed
+        tabBar.unselectedItemTintColor = appColor
+        tabBar.selectedImageTintColor = .systemPurple
         tabBar.isTranslucent = false
         return viewController
     }
     
    
 }
-    
-class AccountSummaryVC: UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .systemBrown
-    }
-}
-
 
 class MoveMoneyVC: UIViewController {
     override func viewDidLoad() {
