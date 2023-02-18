@@ -9,6 +9,22 @@ import UIKit
 
 class AccountSummaryCell: UITableViewCell {
     
+    
+    enum AccountType: String {
+        case Banking
+        case CreditCard
+        case Investment
+    }
+    
+    struct ViewModel {
+      let accountType: AccountType
+      let accountName: String
+        
+    }
+    
+    
+    
+    
     static let identifier = "AccountSummaryCell"
     
     let balanceStackView: UIStackView = {
@@ -18,7 +34,6 @@ class AccountSummaryCell: UITableViewCell {
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
-    
     
     let appNameLabel: UILabel = {
         let label = UILabel()
@@ -30,7 +45,6 @@ class AccountSummaryCell: UITableViewCell {
         return label
     }()
     
-    
     let underlineViewLine: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -40,15 +54,14 @@ class AccountSummaryCell: UITableViewCell {
         return view
     }()
     
-    let noFeeAllinChequingLabel: UILabel = {
+    let accountNameLabel: UILabel = {
         let label = UILabel()
         label.text = "Account name"
         label.adjustsFontForContentSizeCategory = true
-        label.font = .systemFont(ofSize: 22, weight: .medium)
+        label.font = .systemFont(ofSize: 19, weight: .medium)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
     
     let balanceLabel: UILabel = {
         let label = UILabel()
@@ -62,7 +75,7 @@ class AccountSummaryCell: UITableViewCell {
     
     lazy var balanceAmountLabel: UILabel = {
         let label = UILabel()
-       // label.text = "$929,466.63"
+        // label.text = "$929,466.63"
         label.attributedText = makeFormattedBalance(dollar: "929,466", cents: "63")
         label.adjustsFontForContentSizeCategory = true
         label.textAlignment = .right
@@ -94,8 +107,6 @@ class AccountSummaryCell: UITableViewCell {
         return rootString
     }
     
-  
-    
     override func prepareForReuse() {
         
     }
@@ -105,7 +116,7 @@ class AccountSummaryCell: UITableViewCell {
         
         contentView.addSubview(appNameLabel)
         contentView.addSubview(underlineViewLine)
-        contentView.addSubview(noFeeAllinChequingLabel)
+        contentView.addSubview(accountNameLabel)
         contentView.addSubview(balanceLabel)
         contentView.addSubview(balanceAmountLabel)
         
@@ -121,31 +132,46 @@ class AccountSummaryCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     override func layoutSubviews() {
         NSLayoutConstraint.activate([
             
             appNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             appNameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 30),
             
-            underlineViewLine.topAnchor.constraint(equalTo: appNameLabel.bottomAnchor, constant: 10),
+            underlineViewLine.topAnchor.constraint(equalTo: appNameLabel.bottomAnchor, constant: 5),
             underlineViewLine.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             underlineViewLine.heightAnchor.constraint(equalToConstant: 4),
             underlineViewLine.widthAnchor.constraint(equalToConstant: 90),
             
-            noFeeAllinChequingLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            noFeeAllinChequingLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20),
+            accountNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            accountNameLabel.topAnchor.constraint(equalTo: underlineViewLine.bottomAnchor,constant: 20),
+          
             
             balanceStackView.topAnchor.constraint(equalTo: underlineViewLine.bottomAnchor,constant: 8),
             balanceStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
-            balanceStackView.leadingAnchor.constraint(equalTo: noFeeAllinChequingLabel.trailingAnchor, constant: 10),
-           // balanceStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -25),
             
-           // rightArrowButtonImage.centerYAnchor.constraint(equalTo: balanceStackView.centerYAnchor),
+            balanceStackView.leadingAnchor.constraint(equalTo: accountNameLabel.trailingAnchor, constant: 10),
             rightArrowButtonImage.trailingAnchor.constraint(equalTo: trailingAnchor,constant: -8),
             rightArrowButtonImage.topAnchor.constraint(equalTo: underlineViewLine.bottomAnchor, constant: 24),
-            
         ])
     }
-    
+}
+
+extension AccountSummaryCell {
+    func configure(with vm: ViewModel) {
+        appNameLabel.text = vm.accountType.rawValue
+        accountNameLabel.text = vm.accountName
+        
+        switch vm.accountType {
+        case .Banking:
+            underlineViewLine.backgroundColor = .systemBlue
+            balanceLabel.text = "Current balance"
+       case .CreditCard:
+            underlineViewLine.backgroundColor = .systemRed
+            balanceLabel.text = "Current balance"
+        case .Investment:
+            underlineViewLine.backgroundColor = .systemPurple
+            balanceLabel.text = "Value"
+        }
+    }
 }
