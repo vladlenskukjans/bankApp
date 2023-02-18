@@ -116,7 +116,7 @@ class AccountSummaryCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+        backgroundColor = .systemBackground
         contentView.addSubview(appNameLabel)
         contentView.addSubview(underlineViewLine)
         contentView.addSubview(accountNameLabel)

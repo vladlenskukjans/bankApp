@@ -22,7 +22,7 @@ class AccountSummaryHeaderView: UIView {
     let appNameLabel: UILabel = {
        let label = UILabel()
         label.text = "MoneyApp"
-        label.font = .systemFont(ofSize: 25, weight: .medium)
+        label.font = .systemFont(ofSize: 25, weight: .heavy)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -30,7 +30,7 @@ class AccountSummaryHeaderView: UIView {
     let greetingLabel: UILabel = {
        let label = UILabel()
         label.text = "Good Morning"
-        label.font = .systemFont(ofSize: 18, weight: .regular)
+        label.font = .systemFont(ofSize: 18, weight: .medium)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

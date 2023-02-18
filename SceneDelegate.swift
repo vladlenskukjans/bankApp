@@ -16,7 +16,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     let loginViewController = LoginViewController()
     let onboardingContainerVC = OnboardingContainerViewController()
-    let dummyViewController = DummyVc()
     let mainViewController = MainViewController()
     let accountSummaryViewController = AccountSummaryViewController()
 
@@ -26,11 +25,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         onboardingContainerVC.delegate = self
         loginViewController.delegate = self
-        dummyViewController.logoutDelegate = self
+       
         window?.backgroundColor = .systemBackground
-        window?.rootViewController =  accountSummaryViewController
-        mainViewController.selectedIndex = 1
-        // window?.rootViewController = OnboardingContainerViewController()
+        window?.rootViewController = UINavigationController(rootViewController: mainViewController)
+        //mainViewController.selectedIndex = 1
         window?.makeKeyAndVisible()
     }
 }
@@ -46,7 +44,7 @@ extension SceneDelegate {
 extension SceneDelegate: LoginViewControllerDelegate {
     func didLogIn() {
         if LocalState.hasOnboarded {
-            setRootViewControllerSmoothTransition(dummyViewController)
+            setRootViewControllerSmoothTransition(mainViewController)
         } else {
             setRootViewControllerSmoothTransition(onboardingContainerVC)
         }
@@ -55,7 +53,7 @@ extension SceneDelegate: LoginViewControllerDelegate {
   extension SceneDelegate: OnboardingContainerViewControllerDelegate {
       func didFinishOnboarding() {
           LocalState.hasOnboarded = true
-        setRootViewControllerSmoothTransition(dummyViewController)
+        setRootViewControllerSmoothTransition(mainViewController)
 
       }
 }

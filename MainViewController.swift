@@ -21,7 +21,8 @@ class MainViewController: UITabBarController {
     func setStatusBarAppearance() {
         let navBarAppearance = UINavigationBarAppearance()
         navBarAppearance.configureWithTransparentBackground()
-        navBarAppearance.backgroundColor = .systemBackground
+        navBarAppearance.backgroundColor = appColor
+        UINavigationBar.appearance().isTranslucent = false // check what it does!!
         UINavigationBar.appearance().standardAppearance = navBarAppearance
         UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
        // navigationItem.rightBarButtonItem = UIBarButtonItem(systemItem: .close)
@@ -40,7 +41,8 @@ class MainViewController: UITabBarController {
         viewController.tabBarItem.title = title
         viewController.tabBarItem.image = image
        // tabBar.tintColor = .systemBackground
-        tabBar.unselectedItemTintColor = .systemRed
+        tabBar.unselectedItemTintColor = appColor
+        tabBar.selectedImageTintColor = .systemPurple
         tabBar.isTranslucent = false
         return viewController
     }

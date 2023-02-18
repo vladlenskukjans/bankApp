@@ -14,6 +14,8 @@ class AccountSummaryViewController: UIViewController {
     
     let tableView: UITableView = {
        let tableView = UITableView()
+        tableView.backgroundColor = appColor
+        tableView.allowsSelection = false
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(AccountSummaryCell.self, forCellReuseIdentifier: AccountSummaryCell.identifier)
         tableView.tableFooterView = UIView()
@@ -41,7 +43,7 @@ class AccountSummaryViewController: UIViewController {
     
     func setUpHeaderView() {
         let header = AccountSummaryHeaderView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 145))
-        header.backgroundColor = .systemBlue
+        header.backgroundColor = appColor
         tableView.tableHeaderView = header
     }
     
@@ -71,7 +73,7 @@ extension AccountSummaryViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        112
+        130
     }
 }
 
