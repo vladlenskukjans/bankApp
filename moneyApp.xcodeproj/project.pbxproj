@@ -10,6 +10,8 @@
 		245855A6299FA7BC003AAE28 /* AccountSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245855A5299FA7BC003AAE28 /* AccountSummaryViewController.swift */; };
 		245855A8299FB175003AAE28 /* AccountSummaryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245855A7299FB175003AAE28 /* AccountSummaryHeaderView.swift */; };
 		245855AD299FCE65003AAE28 /* AccountSummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245855AC299FCE65003AAE28 /* AccountSummaryCell.swift */; };
+		245855AF29A0E262003AAE28 /* DecimalUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245855AE29A0E262003AAE28 /* DecimalUtils.swift */; };
+		245855B129A0E35A003AAE28 /* CurrencyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245855B029A0E35A003AAE28 /* CurrencyFormatter.swift */; };
 		2488F7CC29983041004FB8C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2488F7CB29983041004FB8C9 /* AppDelegate.swift */; };
 		2488F7CE29983041004FB8C9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2488F7CD29983041004FB8C9 /* SceneDelegate.swift */; };
 		2488F7D529983043004FB8C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2488F7D429983043004FB8C9 /* Assets.xcassets */; };
@@ -28,6 +30,8 @@
 		245855A5299FA7BC003AAE28 /* AccountSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummaryViewController.swift; sourceTree = "<group>"; };
 		245855A7299FB175003AAE28 /* AccountSummaryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummaryHeaderView.swift; sourceTree = "<group>"; };
 		245855AC299FCE65003AAE28 /* AccountSummaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummaryCell.swift; sourceTree = "<group>"; };
+		245855AE29A0E262003AAE28 /* DecimalUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalUtils.swift; sourceTree = "<group>"; };
+		245855B029A0E35A003AAE28 /* CurrencyFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyFormatter.swift; sourceTree = "<group>"; };
 		2488F7C829983041004FB8C9 /* moneyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = moneyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2488F7CB29983041004FB8C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2488F7CD29983041004FB8C9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -122,6 +126,8 @@
 			children = (
 				2488F7EE299A6AAF004FB8C9 /* LocalState.swift */,
 				2488F7F0299A9DD8004FB8C9 /* UIViewControllers + Utils.swift */,
+				245855AE29A0E262003AAE28 /* DecimalUtils.swift */,
+				245855B029A0E35A003AAE28 /* CurrencyFormatter.swift */,
 			);
 			path = Utilis;
 			sourceTree = "<group>";
@@ -200,9 +206,11 @@
 				245855AD299FCE65003AAE28 /* AccountSummaryCell.swift in Sources */,
 				2488F7E82998FB2B004FB8C9 /* OnboardingContainerVC.swift in Sources */,
 				2488F7EA2999067B004FB8C9 /* OnboardingVC.swift in Sources */,
+				245855B129A0E35A003AAE28 /* CurrencyFormatter.swift in Sources */,
 				2488F7CC29983041004FB8C9 /* AppDelegate.swift in Sources */,
 				2488F7E0299830B2004FB8C9 /* loginView.swift in Sources */,
 				2488F7EC299963F8004FB8C9 /* DummyVc.swift in Sources */,
+				245855AF29A0E262003AAE28 /* DecimalUtils.swift in Sources */,
 				2488F7E2299830CA004FB8C9 /* LoginViewController.swift in Sources */,
 				2488F7F1299A9DD8004FB8C9 /* UIViewControllers + Utils.swift in Sources */,
 				2488F7CE29983041004FB8C9 /* SceneDelegate.swift in Sources */,
