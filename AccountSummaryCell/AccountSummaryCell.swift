@@ -14,7 +14,7 @@ class AccountSummaryCell: UITableViewCell {
     let balanceStackView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
-        stack.spacing = 4
+        stack.spacing = 0
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
@@ -55,15 +55,17 @@ class AccountSummaryCell: UITableViewCell {
         label.text = "Some balance"
         label.adjustsFontForContentSizeCategory = true
         label.font = .systemFont(ofSize: 21, weight: .medium)
+        label.textAlignment = .right
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    let balanceAmountLabel: UILabel = {
+    lazy var balanceAmountLabel: UILabel = {
         let label = UILabel()
-        label.text = "$929,466.63"
+       // label.text = "$929,466.63"
+        label.attributedText = makeFormattedBalance(dollar: "929,466", cents: "63")
         label.adjustsFontForContentSizeCategory = true
-        label.font = .systemFont(ofSize: 20, weight: .medium)
+        label.textAlignment = .right
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -76,8 +78,23 @@ class AccountSummaryCell: UITableViewCell {
         return image
     }()
     
+    private func makeFormattedBalance(dollar: String, cents: String) -> NSMutableAttributedString {
+        
+        let dollarSignAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.preferredFont(forTextStyle: .callout), .baselineOffset: 8]
+        let dollarAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.preferredFont(forTextStyle: .title1)]
+        let centAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.preferredFont(forTextStyle: .footnote),.baselineOffset: 8]
+        
+        let rootString = NSMutableAttributedString(string: "$", attributes: dollarSignAttributes)
+        let dollarString = NSAttributedString(string: dollar, attributes: dollarAttributes)
+        let centsString = NSAttributedString(string: cents, attributes: centAttributes)
+        
+        rootString.append(dollarString)
+        rootString.append(centsString)
+        
+        return rootString
+    }
     
-    
+  
     
     override func prepareForReuse() {
         
@@ -122,7 +139,7 @@ class AccountSummaryCell: UITableViewCell {
             balanceStackView.topAnchor.constraint(equalTo: underlineViewLine.bottomAnchor,constant: 8),
             balanceStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
             balanceStackView.leadingAnchor.constraint(equalTo: noFeeAllinChequingLabel.trailingAnchor, constant: 10),
-            // balanceStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -25),
+           // balanceStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -25),
             
            // rightArrowButtonImage.centerYAnchor.constraint(equalTo: balanceStackView.centerYAnchor),
             rightArrowButtonImage.trailingAnchor.constraint(equalTo: trailingAnchor,constant: -8),

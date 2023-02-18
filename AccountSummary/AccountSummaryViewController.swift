@@ -73,6 +73,6 @@ extension AccountSummaryViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        150
+        112
     }
 }
