@@ -31,11 +31,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         onboardingContainerVC.delegate = self
         loginViewController.delegate = self
        
-      
-        
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(didLogout), name: .logout, object: nil)
     }
 }
+
 extension SceneDelegate {
     func setRootViewControllerSmoothTransition(_ vc: UIViewController, animated: Bool = true) {
         guard animated, let window = self.window else { return }
@@ -48,7 +47,7 @@ extension SceneDelegate {
 extension SceneDelegate: LoginViewControllerDelegate {
     func didLogIn() {
         if LocalState.hasOnboarded {
-            setRootViewControllerSmoothTransition(mainViewController)
+            setRootViewControllerSmoothTransition(UINavigationController(rootViewController: mainViewController))
         } else {
             setRootViewControllerSmoothTransition(onboardingContainerVC)
         }
@@ -62,7 +61,7 @@ extension SceneDelegate: LoginViewControllerDelegate {
 }
 
 extension SceneDelegate: LogoutDelegate {
-    func didLogout() {
+   @objc func didLogout() {
         setRootViewControllerSmoothTransition(loginViewController)
     }
 }

@@ -30,7 +30,6 @@ class LoginView: UIView {
   
 }
 extension LoginView {
-    
     func style() {
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = .secondarySystemBackground
@@ -47,7 +46,8 @@ extension LoginView {
         passwordTextField.translatesAutoresizingMaskIntoConstraints = false
         passwordTextField.placeholder = "Password"
         passwordTextField.delegate = self
-        
+        passwordTextField.isSecureTextEntry = true
+        passwordTextField.enablePasswordToggle()
         
         dividerView.translatesAutoresizingMaskIntoConstraints = false
         dividerView.backgroundColor = .secondarySystemFill

@@ -25,7 +25,10 @@ class MainViewController: UITabBarController {
         UINavigationBar.appearance().isTranslucent = false // check what it does!!
         UINavigationBar.appearance().standardAppearance = navBarAppearance
         UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
-       // navigationItem.rightBarButtonItem = UIBarButtonItem(systemItem: .close)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutTapped))
+        navigationItem.rightBarButtonItem?.tintColor = .label
+      
+                                                            
     }
     
     private func generateVC() {
@@ -42,11 +45,15 @@ class MainViewController: UITabBarController {
         viewController.tabBarItem.image = image
        // tabBar.tintColor = .systemBackground
         tabBar.unselectedItemTintColor = appColor
-        tabBar.selectedImageTintColor = .systemPurple
+        tabBar.tintColor = .systemPurple
         tabBar.isTranslucent = false
         return viewController
     }
-    
+                                                            
+ @objc func logoutTapped() {
+     NotificationCenter.default.post(name: .logout, object: nil)
+            
+}
    
 }
 

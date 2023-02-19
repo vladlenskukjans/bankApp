@@ -18,7 +18,6 @@ class AccountSummaryHeaderView: UIView {
         return image
     }()
     
-    
     let appNameLabel: UILabel = {
        let label = UILabel()
         label.text = "MoneyApp"
@@ -67,7 +66,6 @@ class AccountSummaryHeaderView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
 }
 extension AccountSummaryHeaderView {
     func setupConstraints() {
@@ -78,7 +76,7 @@ extension AccountSummaryHeaderView {
             sunImage.widthAnchor.constraint(equalToConstant: 85),
             sunImage.heightAnchor.constraint(equalToConstant: 85),
             
-            appNameLabel.topAnchor.constraint(equalTo: topAnchor,constant: 20),
+            appNameLabel.topAnchor.constraint(equalTo: topAnchor,constant: 10),
             appNameLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 15),
             
             greetingLabel.topAnchor.constraint(equalTo: appNameLabel.bottomAnchor,constant: 10),
@@ -89,7 +87,7 @@ extension AccountSummaryHeaderView {
             
             dateLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor,constant: 10),
             dateLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 15),
-            dateLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5)
+          //  dateLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5)
         
         ])
     }

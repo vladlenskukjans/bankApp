@@ -25,7 +25,6 @@ class AccountSummaryViewController: UIViewController {
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        
         tableView.frame.size = view.bounds.size
     }
     
