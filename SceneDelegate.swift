@@ -23,13 +23,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
        
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
+        window?.backgroundColor = .systemBackground
+        window?.rootViewController = loginViewController
+        
+        //mainViewController.selectedIndex = 1
+        window?.makeKeyAndVisible()
         onboardingContainerVC.delegate = self
         loginViewController.delegate = self
        
-        window?.backgroundColor = .systemBackground
-        window?.rootViewController = UINavigationController(rootViewController: mainViewController)
-        //mainViewController.selectedIndex = 1
-        window?.makeKeyAndVisible()
+      
+        
+        
     }
 }
 extension SceneDelegate {
@@ -52,9 +56,8 @@ extension SceneDelegate: LoginViewControllerDelegate {
 }
   extension SceneDelegate: OnboardingContainerViewControllerDelegate {
       func didFinishOnboarding() {
-          LocalState.hasOnboarded = true
-        setRootViewControllerSmoothTransition(mainViewController)
-
+           LocalState.hasOnboarded = true 
+              setRootViewControllerSmoothTransition(UINavigationController(rootViewController: mainViewController))
       }
 }
 

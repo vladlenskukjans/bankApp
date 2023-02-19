@@ -66,10 +66,9 @@ class OnboardingContainerViewController: UIViewController {
    
     }
     
-    
-    private func setup() {
+        private func setup() {
         
-        view.backgroundColor = .systemPurple
+        view.backgroundColor = appColor
         addChild(pageViewController)
         view.addSubview(pageViewController.view)
         view.addSubview(closeButton)
@@ -112,9 +111,6 @@ class OnboardingContainerViewController: UIViewController {
         doneButton.setTitle("Done", for: .normal)
         doneButton.isHidden = true
         doneButton.addTarget(self, action: #selector(doneButtontapped), for: .touchUpInside)
-        
-        
-        
     }
     
     private func layout() {
@@ -130,10 +126,7 @@ class OnboardingContainerViewController: UIViewController {
         doneButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,constant: -35).isActive = true
         doneButton.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -15).isActive = true
     }
-   
 }
-
-
 // MARK: - UIPageViewControllerDataSource
 extension OnboardingContainerViewController: UIPageViewControllerDataSource {
 
