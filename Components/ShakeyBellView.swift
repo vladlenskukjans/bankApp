@@ -5,4 +5,137 @@
 //  Created by Vladlens Kukjans on 20/02/2023.
 //
 
-import Foundation
+import UIKit
+
+class ShakeyBellView: UIView {
+    
+    
+    let imageView: UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.image = UIImage(systemName: "bell.fill")?.withTintColor(.white, renderingMode: .alwaysOriginal)
+        return image
+    }()
+    
+    let buttonHeight: CGFloat = 16
+    
+   lazy var buttonView: UIButton = {
+        let button = UIButton()
+        button.layer.cornerRadius = buttonHeight/2
+       button.backgroundColor = .systemRed
+       button.translatesAutoresizingMaskIntoConstraints = false
+       button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+       button.setTitle("9", for: .normal)
+       button.setTitleColor(.white, for: .normal)
+        return button
+    }()
+    
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        translatesAutoresizingMaskIntoConstraints = false
+        setConstraints()
+        setup()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    override var intrinsicContentSize: CGSize {
+        return CGSize(width: 48, height: 48)
+    }
+    
+    func setup() {
+        let singleTap = UITapGestureRecognizer(target: self, action: #selector(imageViewTapped))
+        imageView.addGestureRecognizer(singleTap)
+        imageView.isUserInteractionEnabled = true
+    }
+    
+    func setConstraints() {
+        addSubview(imageView)
+        addSubview(buttonView)
+        
+        NSLayoutConstraint.activate([
+            //ImageView
+            imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            imageView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            imageView.heightAnchor.constraint(equalToConstant: 24),
+            imageView.widthAnchor.constraint(equalToConstant: 24),
+            
+            //ButtonView - red circle badge
+            buttonView.topAnchor.constraint(equalTo: imageView.topAnchor),
+            buttonView.leadingAnchor.constraint(equalTo: imageView.trailingAnchor,constant: -8),
+            buttonView.heightAnchor.constraint(equalToConstant: 16),
+            buttonView.widthAnchor.constraint(equalToConstant: 16)
+            
+        ])
+    }
+}
+
+// MARK: - Actions
+extension ShakeyBellView {
+    @objc func imageViewTapped() {
+        shakeWith(duration: 1.0, angle: .pi/8, yOffset: 0.0)
+    }
+
+    private func shakeWith(duration: Double, angle: CGFloat, yOffset: CGFloat) {
+        let numberOfFrames: Double = 6
+        let frameDuration = Double(1/numberOfFrames)
+        
+        imageView.setAnchorPoint(CGPoint(x: 0.5, y: yOffset))
+
+        UIView.animateKeyframes(withDuration: duration, delay: 0, options: [],
+          animations: {
+            UIView.addKeyframe(withRelativeStartTime: 0.0,
+                               relativeDuration: frameDuration) {
+                self.imageView.transform = CGAffineTransform(rotationAngle: -angle)
+            }
+            UIView.addKeyframe(withRelativeStartTime: frameDuration,
+                               relativeDuration: frameDuration) {
+                self.imageView.transform = CGAffineTransform(rotationAngle: +angle)
+            }
+            UIView.addKeyframe(withRelativeStartTime: frameDuration*2,
+                               relativeDuration: frameDuration) {
+                self.imageView.transform = CGAffineTransform(rotationAngle: -angle)
+            }
+            UIView.addKeyframe(withRelativeStartTime: frameDuration*3,
+                               relativeDuration: frameDuration) {
+                self.imageView.transform = CGAffineTransform(rotationAngle: +angle)
+            }
+            UIView.addKeyframe(withRelativeStartTime: frameDuration*4,
+                               relativeDuration: frameDuration) {
+                self.imageView.transform = CGAffineTransform(rotationAngle: -angle)
+            }
+            UIView.addKeyframe(withRelativeStartTime: frameDuration*5,
+                               relativeDuration: frameDuration) {
+                self.imageView.transform = CGAffineTransform.identity
+            }
+          },
+          completion: nil
+        )
+    }
+}
+
+// https://www.hackingwithswift.com/example-code/calayer/how-to-change-a-views-anchor-point-without-moving-it
+extension UIView {
+    func setAnchorPoint(_ point: CGPoint) {
+        var newPoint = CGPoint(x: bounds.size.width * point.x, y: bounds.size.height * point.y)
+        var oldPoint = CGPoint(x: bounds.size.width * layer.anchorPoint.x, y: bounds.size.height * layer.anchorPoint.y)
+
+        newPoint = newPoint.applying(transform)
+        oldPoint = oldPoint.applying(transform)
+
+        var position = layer.position
+
+        position.x -= oldPoint.x
+        position.x += newPoint.x
+
+        position.y -= oldPoint.y
+        position.y += newPoint.y
+
+        layer.position = position
+        layer.anchorPoint = point
+    }
+}

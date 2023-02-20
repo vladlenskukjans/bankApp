@@ -15,6 +15,7 @@
 		245855C029A123C0003AAE28 /* CurrencyFormaterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245855BF29A123C0003AAE28 /* CurrencyFormaterTests.swift */; };
 		245855C229A229EB003AAE28 /* NSNotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245855C129A229EA003AAE28 /* NSNotificationName.swift */; };
 		245855C429A232ED003AAE28 /* UITextField+SecureToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245855C329A232ED003AAE28 /* UITextField+SecureToggle.swift */; };
+		245855C729A3C7BA003AAE28 /* ShakeyBellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245855C629A3C7BA003AAE28 /* ShakeyBellView.swift */; };
 		2488F7CC29983041004FB8C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2488F7CB29983041004FB8C9 /* AppDelegate.swift */; };
 		2488F7CE29983041004FB8C9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2488F7CD29983041004FB8C9 /* SceneDelegate.swift */; };
 		2488F7D529983043004FB8C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2488F7D429983043004FB8C9 /* Assets.xcassets */; };
@@ -106,9 +107,18 @@
 			path = moneyAppUnitTests;
 			sourceTree = "<group>";
 		};
+		245855C529A3C749003AAE28 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				245855C629A3C7BA003AAE28 /* ShakeyBellView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		2488F7BF29983041004FB8C9 = {
 			isa = PBXGroup;
 			children = (
+				245855C529A3C749003AAE28 /* Components */,
 				2488F7F2299A9F10004FB8C9 /* MainViewController.swift */,
 				245855A4299FA765003AAE28 /* AccountSummary */,
 				245855AB299FCE08003AAE28 /* AccountSummaryCell */,
@@ -284,6 +294,7 @@
 				2488F7EC299963F8004FB8C9 /* DummyVc.swift in Sources */,
 				245855AF29A0E262003AAE28 /* Decimal+Utils.swift in Sources */,
 				2488F7E2299830CA004FB8C9 /* LoginViewController.swift in Sources */,
+				245855C729A3C7BA003AAE28 /* ShakeyBellView.swift in Sources */,
 				245855C429A232ED003AAE28 /* UITextField+SecureToggle.swift in Sources */,
 				2488F7CE29983041004FB8C9 /* SceneDelegate.swift in Sources */,
 				245855C229A229EB003AAE28 /* NSNotificationName.swift in Sources */,

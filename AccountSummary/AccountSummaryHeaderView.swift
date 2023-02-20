@@ -9,6 +9,7 @@ import UIKit
 
 class AccountSummaryHeaderView: UIView {
     
+    let shakeyBellView = ShakeyBellView()
     
     let sunImage: UIImageView = {
         let image = UIImageView(image: UIImage(systemName: "sun.max.fill"))
@@ -59,6 +60,7 @@ class AccountSummaryHeaderView: UIView {
         addSubview(greetingLabel)
         addSubview(nameLabel)
         addSubview(dateLabel)
+        addSubview(shakeyBellView)
         setupConstraints()
     }
     
@@ -71,7 +73,7 @@ extension AccountSummaryHeaderView {
     func setupConstraints() {
         NSLayoutConstraint.activate([
             
-            sunImage.topAnchor.constraint(equalTo: topAnchor,constant: 20),
+            sunImage.topAnchor.constraint(equalTo: topAnchor,constant: 10),
             sunImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
             sunImage.widthAnchor.constraint(equalToConstant: 85),
             sunImage.heightAnchor.constraint(equalToConstant: 85),
@@ -88,6 +90,9 @@ extension AccountSummaryHeaderView {
             dateLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor,constant: 10),
             dateLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 15),
           //  dateLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5)
+            
+            shakeyBellView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            shakeyBellView.bottomAnchor.constraint(equalTo: bottomAnchor,constant: -10)
         
         ])
     }
