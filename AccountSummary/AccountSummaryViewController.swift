@@ -9,7 +9,7 @@ import UIKit
 
 class AccountSummaryViewController: UIViewController {
     
-    
+
     //Request Model
     var profile: Profile?
     var accounts: [Account] = []
@@ -21,9 +21,9 @@ class AccountSummaryViewController: UIViewController {
     
     //Components
     var headerView = AccountSummaryHeaderView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 145))
-    
+    var isLoaded = false
     let refreshControl = UIRefreshControl()
-    
+   
     
     let tableView: UITableView = {
        let tableView = UITableView()
@@ -31,6 +31,7 @@ class AccountSummaryViewController: UIViewController {
         tableView.allowsSelection = false
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(AccountSummaryCell.self, forCellReuseIdentifier: AccountSummaryCell.identifier)
+        tableView.register(SkeletonCell.self, forCellReuseIdentifier: SkeletonCell.reuseID)
         tableView.tableFooterView = UIView()
         return tableView
         
@@ -39,6 +40,7 @@ class AccountSummaryViewController: UIViewController {
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         tableView.frame.size = view.bounds.size
+        
     }
     
     
@@ -49,14 +51,18 @@ class AccountSummaryViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         setUpHeaderView()
-        fetchData()
+        
         setupRefreshControl()
+        setupSkeletons()
+        fetchData()
+        
     }
     
     
   private func setUpHeaderView() {
         headerView.backgroundColor = appColor
         tableView.tableHeaderView = headerView
+      
     }
     
     private func setupRefreshControl() {
@@ -65,10 +71,13 @@ class AccountSummaryViewController: UIViewController {
         tableView.refreshControl = refreshControl
     }
     
-    @objc func refreshContent() {
-        fetchData()
-    }
     
+    private func setupSkeletons() {
+           let row = Account.makeSkeleton()
+           accounts = Array(repeating: row, count: 10)
+           
+         configureTableCell(with: accounts)
+       }
     
 }
 
@@ -80,15 +89,26 @@ extension AccountSummaryViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard !accountCellViewModels.isEmpty,
-        let cell = tableView.dequeueReusableCell(withIdentifier: AccountSummaryCell.identifier, for: indexPath) as? AccountSummaryCell else {  return UITableViewCell() }
-       
-        let accounts = accountCellViewModels[indexPath.row]
-        cell.configure(with: accounts)
-       
-        return cell
+//        guard !accountCellViewModels.isEmpty,
+//        let cell = tableView.dequeueReusableCell(withIdentifier: AccountSummaryCell.identifier, for: indexPath) as? AccountSummaryCell else {  return UITableViewCell() }
+//
+//        let accounts = accountCellViewModels[indexPath.row]
+//        cell.configure(with: accounts)
+//
+//        return cell
+        
+        guard !accountCellViewModels.isEmpty else { return UITableViewCell() }
+               let account = accountCellViewModels[indexPath.row]
+
+               if isLoaded {
+                   let cell = tableView.dequeueReusableCell(withIdentifier: AccountSummaryCell.identifier, for: indexPath) as! AccountSummaryCell
+                   cell.configure(with: account)
+                   return cell
+               }
+               
+               let cell = tableView.dequeueReusableCell(withIdentifier: SkeletonCell.reuseID, for: indexPath) as! SkeletonCell
+               return cell
     }
-    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
@@ -112,8 +132,6 @@ extension AccountSummaryViewController {
             switch result {
             case .success(let profile):
                 self.profile = profile
-                self.configureTableHeaderView(with: profile)
-                
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -124,9 +142,7 @@ extension AccountSummaryViewController {
         fetchAccounts(forUserId: userId) { result in
             switch result {
             case .success(let accounts):
-                self.accounts = accounts
-                self.configureTableCell(with: accounts)
-                
+                self.accounts = accounts                
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -134,8 +150,12 @@ extension AccountSummaryViewController {
         }
         
         group.notify(queue: .main) {
-            self.tableView.reloadData()
             self.tableView.refreshControl?.endRefreshing()
+            guard let profile = self.profile else { return }
+            self.isLoaded = true
+            self.configureTableHeaderView(with: profile)
+            self.configureTableCell(with: self.accounts)
+            self.tableView.reloadData()
         }
     }
     
@@ -151,5 +171,23 @@ extension AccountSummaryViewController {
         }
        
     }
+    
+}
+// Actions
+
+extension AccountSummaryViewController {
+    @objc func refreshContent() {
+        reset()
+        setupSkeletons()
+        tableView.reloadData()
+        fetchData()
+    }
+    
+    private func reset() {
+        profile = nil
+        accounts = []
+        isLoaded = false
+    }
+    
     
 }

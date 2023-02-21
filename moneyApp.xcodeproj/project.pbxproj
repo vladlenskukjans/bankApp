@@ -20,6 +20,8 @@
 		245855CE29A405E6003AAE28 /* AccountSummaryVC + Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245855CD29A405E5003AAE28 /* AccountSummaryVC + Networking.swift */; };
 		245855D029A4E473003AAE28 /* ProfileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245855CF29A4E473003AAE28 /* ProfileTests.swift */; };
 		245855D229A4EA96003AAE28 /* AccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245855D129A4EA96003AAE28 /* AccountTests.swift */; };
+		245855D829A52063003AAE28 /* SkeletonLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245855D729A52063003AAE28 /* SkeletonLoadable.swift */; };
+		245855DA29A52083003AAE28 /* SkeletonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245855D929A52083003AAE28 /* SkeletonCell.swift */; };
 		2488F7CC29983041004FB8C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2488F7CB29983041004FB8C9 /* AppDelegate.swift */; };
 		2488F7CE29983041004FB8C9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2488F7CD29983041004FB8C9 /* SceneDelegate.swift */; };
 		2488F7D529983043004FB8C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2488F7D429983043004FB8C9 /* Assets.xcassets */; };
@@ -57,6 +59,8 @@
 		245855CD29A405E5003AAE28 /* AccountSummaryVC + Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AccountSummaryVC + Networking.swift"; sourceTree = "<group>"; };
 		245855CF29A4E473003AAE28 /* ProfileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTests.swift; sourceTree = "<group>"; };
 		245855D129A4EA96003AAE28 /* AccountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTests.swift; sourceTree = "<group>"; };
+		245855D729A52063003AAE28 /* SkeletonLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonLoadable.swift; sourceTree = "<group>"; };
+		245855D929A52083003AAE28 /* SkeletonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonCell.swift; sourceTree = "<group>"; };
 		2488F7C829983041004FB8C9 /* moneyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = moneyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2488F7CB29983041004FB8C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2488F7CD29983041004FB8C9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +107,8 @@
 			isa = PBXGroup;
 			children = (
 				245855AC299FCE65003AAE28 /* AccountSummaryCell.swift */,
+				245855D729A52063003AAE28 /* SkeletonLoadable.swift */,
+				245855D929A52083003AAE28 /* SkeletonCell.swift */,
 			);
 			path = AccountSummaryCell;
 			sourceTree = "<group>";
@@ -306,6 +312,8 @@
 				245855AF29A0E262003AAE28 /* Decimal+Utils.swift in Sources */,
 				2488F7E2299830CA004FB8C9 /* LoginViewController.swift in Sources */,
 				245855CC29A3FECB003AAE28 /* Date + Utils.swift in Sources */,
+				245855DA29A52083003AAE28 /* SkeletonCell.swift in Sources */,
+				245855D829A52063003AAE28 /* SkeletonLoadable.swift in Sources */,
 				245855C729A3C7BA003AAE28 /* ShakeyBellView.swift in Sources */,
 				245855C429A232ED003AAE28 /* UITextField+SecureToggle.swift in Sources */,
 				245855CE29A405E6003AAE28 /* AccountSummaryVC + Networking.swift in Sources */,
