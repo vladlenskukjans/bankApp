@@ -18,6 +18,8 @@
 		245855C729A3C7BA003AAE28 /* ShakeyBellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245855C629A3C7BA003AAE28 /* ShakeyBellView.swift */; };
 		245855CC29A3FECB003AAE28 /* Date + Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245855CB29A3FECB003AAE28 /* Date + Utils.swift */; };
 		245855CE29A405E6003AAE28 /* AccountSummaryVC + Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245855CD29A405E5003AAE28 /* AccountSummaryVC + Networking.swift */; };
+		245855D029A4E473003AAE28 /* ProfileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245855CF29A4E473003AAE28 /* ProfileTests.swift */; };
+		245855D229A4EA96003AAE28 /* AccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245855D129A4EA96003AAE28 /* AccountTests.swift */; };
 		2488F7CC29983041004FB8C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2488F7CB29983041004FB8C9 /* AppDelegate.swift */; };
 		2488F7CE29983041004FB8C9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2488F7CD29983041004FB8C9 /* SceneDelegate.swift */; };
 		2488F7D529983043004FB8C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2488F7D429983043004FB8C9 /* Assets.xcassets */; };
@@ -54,6 +56,8 @@
 		245855C629A3C7BA003AAE28 /* ShakeyBellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeyBellView.swift; sourceTree = "<group>"; };
 		245855CB29A3FECB003AAE28 /* Date + Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date + Utils.swift"; sourceTree = "<group>"; };
 		245855CD29A405E5003AAE28 /* AccountSummaryVC + Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AccountSummaryVC + Networking.swift"; sourceTree = "<group>"; };
+		245855CF29A4E473003AAE28 /* ProfileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTests.swift; sourceTree = "<group>"; };
+		245855D129A4EA96003AAE28 /* AccountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTests.swift; sourceTree = "<group>"; };
 		2488F7C829983041004FB8C9 /* moneyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = moneyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2488F7CB29983041004FB8C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2488F7CD29983041004FB8C9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +113,8 @@
 			isa = PBXGroup;
 			children = (
 				245855BF29A123C0003AAE28 /* CurrencyFormaterTests.swift */,
+				245855CF29A4E473003AAE28 /* ProfileTests.swift */,
+				245855D129A4EA96003AAE28 /* AccountTests.swift */,
 			);
 			path = moneyAppUnitTests;
 			sourceTree = "<group>";
@@ -284,6 +290,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				245855C029A123C0003AAE28 /* CurrencyFormaterTests.swift in Sources */,
+				245855D229A4EA96003AAE28 /* AccountTests.swift in Sources */,
+				245855D029A4E473003AAE28 /* ProfileTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
