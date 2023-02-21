@@ -7,19 +7,21 @@
 
 import UIKit
 
+
+enum AccountType: String, Codable {
+    case Banking
+    case CreditCard
+    case Investment
+}
+
+
 class AccountSummaryCell: UITableViewCell {
     
-    
-    enum AccountType: String {
-        case Banking
-        case CreditCard
-        case Investment
-    }
     
     struct ViewModel {
         let accountType: AccountType
         let accountName: String
-        let  balance: Decimal
+        let balance: Decimal
         
         var balanceAsAttributedString: NSAttributedString {
             return CurrencyFormatter().makeAttributedCurrency(balance)
@@ -165,6 +167,7 @@ extension AccountSummaryCell {
         appNameLabel.text = vm.accountType.rawValue
         accountNameLabel.text = vm.accountName
         balanceAmountLabel.attributedText = vm.balanceAsAttributedString
+        
         switch vm.accountType {
         case .Banking:
             underlineViewLine.backgroundColor = .systemBlue

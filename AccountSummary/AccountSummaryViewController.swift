@@ -8,10 +8,19 @@
 import UIKit
 
 class AccountSummaryViewController: UIViewController {
+    
+    
+    //Request Model
+    var profile: Profile?
+    var accounts: [Account] = []
+    
   
-    var accounts: [AccountSummaryCell.ViewModel] = []
+        //ViewModel
+    var headerViewModel = AccountSummaryHeaderView.ViewModelHeader(welcomeMessage: "Welcome", name: "", date: Date())
+    var headerView = AccountSummaryHeaderView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 145))
     
-    
+    var accountCellViewModels: [AccountSummaryCell.ViewModel] = []
+        
     let tableView: UITableView = {
        let tableView = UITableView()
         tableView.backgroundColor = appColor
@@ -35,15 +44,14 @@ class AccountSummaryViewController: UIViewController {
         view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
-                setUpHeaderView()
-                fetchData()
+        setUpHeaderView()
+        fetchDataAndLoadView()
     }
     
     
     func setUpHeaderView() {
-        let header = AccountSummaryHeaderView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 145))
-        header.backgroundColor = appColor
-        tableView.tableHeaderView = header
+        headerView.backgroundColor = appColor
+        tableView.tableHeaderView = headerView
     }
     
 }
@@ -51,15 +59,15 @@ class AccountSummaryViewController: UIViewController {
 //MARK: - UITableViewDelegate, UITableViewDataSource
 extension AccountSummaryViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        accounts.count
+        accountCellViewModels.count
       
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard !accounts.isEmpty,
+        guard !accountCellViewModels.isEmpty,
         let cell = tableView.dequeueReusableCell(withIdentifier: AccountSummaryCell.identifier, for: indexPath) as? AccountSummaryCell else {  return UITableViewCell() }
        
-        let accounts = accounts[indexPath.row]
+        let accounts = accountCellViewModels[indexPath.row]
         cell.configure(with: accounts)
        
         return cell
@@ -76,23 +84,43 @@ extension AccountSummaryViewController: UITableViewDelegate, UITableViewDataSour
     }
 }
 
-//MARK: - Fetching
 extension AccountSummaryViewController {
-    
-    private func fetchData() {
-        let savings = AccountSummaryCell.ViewModel(accountType: .Banking, accountName: "Basic Savings", balance: 929466.23)
-        let visa = AccountSummaryCell.ViewModel(accountType: .CreditCard, accountName: "Visa Credit Card", balance: 412.83)
-        let masterCard = AccountSummaryCell.ViewModel(accountType: .CreditCard, accountName: "Student MasterCard", balance: 50.88)
-        let investment1 = AccountSummaryCell.ViewModel(accountType: .Investment, accountName: "Tax-Free Saver", balance: 2000.00)
-        let investment2 = AccountSummaryCell.ViewModel(accountType: .Investment, accountName: "First House", balance: 1500.00)
-        let chequing = AccountSummaryCell.ViewModel(accountType: .Banking, accountName: "No-Fee All-In Chequing", balance: 17562.44)
+    private func fetchDataAndLoadView() {
         
-        accounts.append(savings)
-        accounts.append(visa)
-        accounts.append(masterCard)
-        accounts.append(investment1)
-        accounts.append(investment2)
-        accounts.append(chequing)
+        fetchProfile(forUserId: "1") { result in
+            switch result {
+            case .success(let profile):
+                self.profile = profile
+                self.configureTableHeaderView(with: profile)
+                self.tableView.reloadData()
+            
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+        
+        fetchAccounts(forUserId: "1") { result in
+            switch result {
+            case .success(let accounts):
+                self.accounts = accounts
+                self.configureTableCell(with: accounts)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    private func configureTableHeaderView(with profile: Profile) {
+        let vm = AccountSummaryHeaderView.ViewModelHeader(welcomeMessage: "Good Afternoon", name: profile.firstName, date: Date())
+        
+        headerView.configure(viewModel: vm)
+    }
+    
+    private func configureTableCell(with: [Account]) {
+        accountCellViewModels = accounts.map {
+            AccountSummaryCell.ViewModel(accountType: $0.type, accountName: $0.name, balance: $0.amount)
+        }
+       
     }
     
 }

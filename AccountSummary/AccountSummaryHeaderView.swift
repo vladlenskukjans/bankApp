@@ -9,6 +9,16 @@ import UIKit
 
 class AccountSummaryHeaderView: UIView {
     
+    struct ViewModelHeader {
+        let welcomeMessage: String
+        let name: String
+        let date: Date
+        
+        var dateFormatted: String {
+            return date.monthDayYearString
+        }
+    }
+
     let shakeyBellView = ShakeyBellView()
     
     let sunImage: UIImageView = {
@@ -27,7 +37,7 @@ class AccountSummaryHeaderView: UIView {
         return label
     }()
     
-    let greetingLabel: UILabel = {
+    let welcomeLabel: UILabel = {
        let label = UILabel()
         label.text = "Good Morning"
         label.font = .systemFont(ofSize: 18, weight: .medium)
@@ -57,7 +67,7 @@ class AccountSummaryHeaderView: UIView {
         
         addSubview(sunImage)
         addSubview(appNameLabel)
-        addSubview(greetingLabel)
+        addSubview(welcomeLabel)
         addSubview(nameLabel)
         addSubview(dateLabel)
         addSubview(shakeyBellView)
@@ -68,6 +78,12 @@ class AccountSummaryHeaderView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func configure(viewModel: ViewModelHeader) {
+      
+            self.welcomeLabel.text = viewModel.welcomeMessage
+            self.nameLabel.text = viewModel.name
+            self.dateLabel.text = viewModel.dateFormatted
+    }
 }
 extension AccountSummaryHeaderView {
     func setupConstraints() {
@@ -81,10 +97,10 @@ extension AccountSummaryHeaderView {
             appNameLabel.topAnchor.constraint(equalTo: topAnchor,constant: 10),
             appNameLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 15),
             
-            greetingLabel.topAnchor.constraint(equalTo: appNameLabel.bottomAnchor,constant: 10),
-            greetingLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 15),
+            welcomeLabel.topAnchor.constraint(equalTo: appNameLabel.bottomAnchor,constant: 10),
+            welcomeLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 15),
             
-            nameLabel.topAnchor.constraint(equalTo: greetingLabel.bottomAnchor,constant: 10),
+            nameLabel.topAnchor.constraint(equalTo: welcomeLabel.bottomAnchor,constant: 10),
             nameLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 15),
             
             dateLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor,constant: 10),
@@ -92,7 +108,7 @@ extension AccountSummaryHeaderView {
           //  dateLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5)
             
             shakeyBellView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            shakeyBellView.bottomAnchor.constraint(equalTo: bottomAnchor,constant: -10)
+            shakeyBellView.bottomAnchor.constraint(equalTo: bottomAnchor)
         
         ])
     }
