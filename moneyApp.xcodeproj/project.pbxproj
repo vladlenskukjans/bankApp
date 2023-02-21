@@ -28,7 +28,6 @@
 		2488F7E2299830CA004FB8C9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2488F7E1299830CA004FB8C9 /* LoginViewController.swift */; };
 		2488F7E82998FB2B004FB8C9 /* OnboardingContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2488F7E72998FB2B004FB8C9 /* OnboardingContainerVC.swift */; };
 		2488F7EA2999067B004FB8C9 /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2488F7E92999067B004FB8C9 /* OnboardingVC.swift */; };
-		2488F7EC299963F8004FB8C9 /* DummyVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2488F7EB299963F8004FB8C9 /* DummyVc.swift */; };
 		2488F7EF299A6AAF004FB8C9 /* LocalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2488F7EE299A6AAF004FB8C9 /* LocalState.swift */; };
 		2488F7F3299A9F10004FB8C9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2488F7F2299A9F10004FB8C9 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
@@ -68,7 +67,6 @@
 		2488F7E1299830CA004FB8C9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2488F7E72998FB2B004FB8C9 /* OnboardingContainerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContainerVC.swift; sourceTree = "<group>"; };
 		2488F7E92999067B004FB8C9 /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
-		2488F7EB299963F8004FB8C9 /* DummyVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyVc.swift; sourceTree = "<group>"; };
 		2488F7EE299A6AAF004FB8C9 /* LocalState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalState.swift; sourceTree = "<group>"; };
 		2488F7F2299A9F10004FB8C9 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -161,7 +159,6 @@
 			children = (
 				2488F7E1299830CA004FB8C9 /* LoginViewController.swift */,
 				2488F7DF299830B2004FB8C9 /* loginView.swift */,
-				2488F7EB299963F8004FB8C9 /* DummyVc.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -306,7 +303,6 @@
 				245855B129A0E35A003AAE28 /* CurrencyFormatter.swift in Sources */,
 				2488F7CC29983041004FB8C9 /* AppDelegate.swift in Sources */,
 				2488F7E0299830B2004FB8C9 /* loginView.swift in Sources */,
-				2488F7EC299963F8004FB8C9 /* DummyVc.swift in Sources */,
 				245855AF29A0E262003AAE28 /* Decimal+Utils.swift in Sources */,
 				2488F7E2299830CA004FB8C9 /* LoginViewController.swift in Sources */,
 				245855CC29A3FECB003AAE28 /* Date + Utils.swift in Sources */,

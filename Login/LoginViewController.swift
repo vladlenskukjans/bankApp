@@ -71,7 +71,7 @@ class LoginViewController: UIViewController {
         view.backgroundColor = .white
         style()
         layout()
-        
+           
         
     }
     
@@ -187,14 +187,13 @@ extension LoginViewController {
         animation.isAdditive = true
         signButton.layer.add(animation, forKey: "shake")
     }
-    
-    
 }
 
 extension LoginViewController {
    
     private func animate() {
         let duration = 1.0
+        
         let animator = UIViewPropertyAnimator(duration: duration, curve: .easeInOut) {
             self.titleLeadingAnchor?.constant = self.leadingEdgeOnScreen
             self.view.layoutIfNeeded()
