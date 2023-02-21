@@ -50,8 +50,8 @@ class AccountSummaryViewController: UIViewController {
         view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
-        setUpHeaderView()
         
+        setUpHeaderView()
         setupRefreshControl()
         setupSkeletons()
         fetchData()
@@ -133,18 +133,18 @@ extension AccountSummaryViewController {
             case .success(let profile):
                 self.profile = profile
             case .failure(let error):
-                print(error.localizedDescription)
+                self.displayError(error)
             }
             group.leave()
         }
         
         group.enter()
-        fetchAccounts(forUserId: userId) { result in
+        fetchAccounts(forUserId: userId) { [weak self] result in
             switch result {
             case .success(let accounts):
-                self.accounts = accounts                
+                self?.accounts = accounts
             case .failure(let error):
-                print(error.localizedDescription)
+                self?.displayError(error)
             }
             group.leave()
         }
@@ -169,9 +169,28 @@ extension AccountSummaryViewController {
         accountCellViewModels = accounts.map {
             AccountSummaryCell.ViewModel(accountType: $0.type, accountName: $0.name, balance: $0.amount)
         }
-       
     }
     
+    private func displayError(_ error: NetworkError) {
+        let title: String
+        let message: String
+        switch error {
+        case .serverError:
+            title = "Server Error"
+            message = "Ensure you are connected to the internet. Please try again"
+        case .decodingError:
+              title = "Decoding Error"
+             message = "We could not process your request. Please try again."
+      }
+        self.showErrorAlert(title: title, message: message)
+    }
+    
+    
+    private func showErrorAlert(title: String, message: String) {
+        let serverAlert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        serverAlert.addAction(UIAlertAction(title: "OK", style: .default))
+        present(serverAlert, animated: true)
+    }
 }
 // Actions
 
