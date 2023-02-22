@@ -22,6 +22,8 @@
 		245855D229A4EA96003AAE28 /* AccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245855D129A4EA96003AAE28 /* AccountTests.swift */; };
 		245855D829A52063003AAE28 /* SkeletonLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245855D729A52063003AAE28 /* SkeletonLoadable.swift */; };
 		245855DA29A52083003AAE28 /* SkeletonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245855D929A52083003AAE28 /* SkeletonCell.swift */; };
+		245855DD29A5600C003AAE28 /* ProfileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245855DC29A5600C003AAE28 /* ProfileManager.swift */; };
+		245855DF29A570C2003AAE28 /* AccountSummaryViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245855DE29A570C2003AAE28 /* AccountSummaryViewControllerTests.swift */; };
 		2488F7CC29983041004FB8C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2488F7CB29983041004FB8C9 /* AppDelegate.swift */; };
 		2488F7CE29983041004FB8C9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2488F7CD29983041004FB8C9 /* SceneDelegate.swift */; };
 		2488F7D529983043004FB8C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2488F7D429983043004FB8C9 /* Assets.xcassets */; };
@@ -61,6 +63,8 @@
 		245855D129A4EA96003AAE28 /* AccountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTests.swift; sourceTree = "<group>"; };
 		245855D729A52063003AAE28 /* SkeletonLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonLoadable.swift; sourceTree = "<group>"; };
 		245855D929A52083003AAE28 /* SkeletonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonCell.swift; sourceTree = "<group>"; };
+		245855DC29A5600C003AAE28 /* ProfileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileManager.swift; sourceTree = "<group>"; };
+		245855DE29A570C2003AAE28 /* AccountSummaryViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummaryViewControllerTests.swift; sourceTree = "<group>"; };
 		2488F7C829983041004FB8C9 /* moneyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = moneyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2488F7CB29983041004FB8C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2488F7CD29983041004FB8C9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +123,7 @@
 				245855BF29A123C0003AAE28 /* CurrencyFormaterTests.swift */,
 				245855CF29A4E473003AAE28 /* ProfileTests.swift */,
 				245855D129A4EA96003AAE28 /* AccountTests.swift */,
+				245855DE29A570C2003AAE28 /* AccountSummaryViewControllerTests.swift */,
 			);
 			path = moneyAppUnitTests;
 			sourceTree = "<group>";
@@ -131,6 +136,14 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		245855DB29A55FCC003AAE28 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				245855DC29A5600C003AAE28 /* ProfileManager.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		2488F7BF29983041004FB8C9 = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +151,7 @@
 				2488F7F2299A9F10004FB8C9 /* MainViewController.swift */,
 				245855A4299FA765003AAE28 /* AccountSummary */,
 				245855AB299FCE08003AAE28 /* AccountSummaryCell */,
+				245855DB29A55FCC003AAE28 /* Networking */,
 				2488F7ED299A6A79004FB8C9 /* Utilis */,
 				2488F7E32998F7EB004FB8C9 /* Login */,
 				2488F7E62998FADC004FB8C9 /* Onboarding  */,
@@ -295,6 +309,7 @@
 				245855C029A123C0003AAE28 /* CurrencyFormaterTests.swift in Sources */,
 				245855D229A4EA96003AAE28 /* AccountTests.swift in Sources */,
 				245855D029A4E473003AAE28 /* ProfileTests.swift in Sources */,
+				245855DF29A570C2003AAE28 /* AccountSummaryViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,6 +327,7 @@
 				245855AF29A0E262003AAE28 /* Decimal+Utils.swift in Sources */,
 				2488F7E2299830CA004FB8C9 /* LoginViewController.swift in Sources */,
 				245855CC29A3FECB003AAE28 /* Date + Utils.swift in Sources */,
+				245855DD29A5600C003AAE28 /* ProfileManager.swift in Sources */,
 				245855DA29A52083003AAE28 /* SkeletonCell.swift in Sources */,
 				245855D829A52063003AAE28 /* SkeletonLoadable.swift in Sources */,
 				245855C729A3C7BA003AAE28 /* ShakeyBellView.swift in Sources */,
