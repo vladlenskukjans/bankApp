@@ -47,7 +47,7 @@ class AccountSummaryViewControllerTests: XCTestCase {
         
     }
     
-    func testTitleAndMessageFordecodingError() throws {
+    func testTitleAndMessageForDecodingError() throws {
         let titleAndMessage = vc.titleAndMessageForTesting(for: .decodingError)
         XCTAssertEqual("Decoding Error", titleAndMessage.0)
         XCTAssertEqual("We could not process your request. Please try again.", titleAndMessage.1)
