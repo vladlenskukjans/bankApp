@@ -9,6 +9,9 @@ import UIKit
 
 class AccountSummaryViewController: UIViewController {
     
+    let a = Int()
+    let b = Double()
+    let c = Float()
 
     //Request Model
     var profile: Profile?
